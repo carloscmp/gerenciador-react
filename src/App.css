@@ -1,0 +1,146 @@
+/* Configuração geral do body */
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to bottom, #1e3c72, #2a5298);
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* Layout principal */
+.container-fluid {
+  padding: 0;
+}
+
+/* Estilização da barra lateral */
+.sidebar {
+  background-color: #1e3c72;
+  height: 100vh;
+  padding-top: 20px;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+}
+
+.sidebar a:hover {
+  background-color: #2a5298;
+  border-radius: 4px;
+}
+
+/* Header */
+.header {
+  background-color: #1e3c72;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Formulários */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+form .form-label {
+  font-size: 1.2rem;
+}
+
+form .form-control {
+  height: 50px;
+  font-size: 1rem;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  background-color: #2a5298;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #1e3c72;
+}
+
+/* Gradiente do popup */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #2a5298;
+  padding: 20px;
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.modal-content .list-group-item {
+  background-color: #1e3c72;
+  border: none;
+  color: #fff;
+}
+
+.modal-content .list-group-item:hover {
+  background-color: #2a5298;
+  cursor: pointer;
+}
+
+.modal-content button {
+  background-color: #fff;
+  color: #1e3c72;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #e3e3e3;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sidebar {
+    height: auto;
+    padding: 10px;
+  }
+
+  form {
+    width: 90%;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
