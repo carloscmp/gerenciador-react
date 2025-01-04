@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { Button, Row } from "react-bootstrap";
 
-const RegisterClient: React.FC = () => {
+const Cliente: React.FC = () => {
   const [formData, setFormData] = useState({
     nome: "",
     endereco: "",
@@ -83,4 +83,4 @@ const RegisterClient: React.FC = () => {
   );
 };
 
-export default RegisterClient;
+export default Cliente;

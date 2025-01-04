@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 
-const RegisterService: React.FC = () => {
+const Servico: React.FC = () => {
   const [nomeServico, setNomeServico] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -35,4 +35,4 @@ const RegisterService: React.FC = () => {
   );
 };
 
-export default RegisterService;
+export default Servico;

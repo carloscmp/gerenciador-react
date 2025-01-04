@@ -2,10 +2,10 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './pages/Home';
-import RegisterService from './pages/RegisterService';
-import RegisterClient from './pages/RegisterClient';
-import AgendarServico from './pages/AgendarServico';
 import './App.css';
+import Servico from './pages/Servico';
+import Cliente from './pages/Cliente';
+import Agendamento from './pages/Agendamento';
 
 
 const App: React.FC = () => {
@@ -14,9 +14,9 @@ const App: React.FC = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/servico" element={<RegisterService />} />
-        <Route path="/cliente" element={<RegisterClient />} />
-        <Route path="/agendamento" element={<AgendarServico />} />
+        <Route path="/servico" element={<Servico />} />
+        <Route path="/cliente" element={<Cliente />} />
+        <Route path="/agendamento" element={<Agendamento />} />
       </Routes>
     </div>
   );

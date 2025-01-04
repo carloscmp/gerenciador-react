@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 
-const AgendarServico: React.FC = () => {
+const Agendamento: React.FC = () => {
   const [clienteSelecionado, setClienteSelecionado] = useState("");
   const [servico, setServico] = useState("");
   const [dataHora, setDataHora] = useState("");
@@ -105,4 +105,4 @@ const AgendarServico: React.FC = () => {
   );
 };
 
-export default AgendarServico;
+export default Agendamento;
