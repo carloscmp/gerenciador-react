@@ -7,6 +7,7 @@ import Servico from './pages/Servico';
 import Cliente from './pages/Cliente';
 import Agendamento from './pages/Agendamento';
 import ListaClientes from './pages/ListaClientes';
+import AtualizarCliente from './pages/AtualizarCliente';
 
 
 const App: React.FC = () => {
@@ -19,6 +20,7 @@ const App: React.FC = () => {
         <Route path="/cliente" element={<Cliente />} />
         <Route path="/agendamento" element={<Agendamento />} />
         <Route path="/lista-clientes" element={<ListaClientes />} />
+        <Route path="/atualizar-cliente/:id" element={<AtualizarCliente />} />
       </Routes>
     </div>
   );
