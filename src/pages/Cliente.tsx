@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Layout from "../components/Layout";
 import { Button, Row } from "react-bootstrap";
+import api from "../services/api";
+import { Link } from "react-router-dom";
 
 const Cliente: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -14,11 +16,21 @@ const Cliente: React.FC = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Dados enviados:", formData);
-    alert("Cliente cadastrado com sucesso!");
-    setFormData({ nome: "", endereco: "", telefone: "" });
+    try {
+      const response = await api.post("/cliente", formData);
+
+      if (response.status === 201) {
+        alert("Cliente cadastrado com sucesso!");
+        setFormData({ nome: "", endereco: "", telefone: "" }); // Limpa o formulário
+      } else {
+        alert("Erro inesperado. Tente novamente.");
+      }
+    } catch (error) {
+      console.error("Erro ao cadastrar cliente:", error);
+      alert("Erro ao cadastrar cliente.");
+    }
   };
 
   return (
@@ -79,6 +91,13 @@ const Cliente: React.FC = () => {
           </Button>
         </form>
       </Row>
+      <Button
+        variant="primary"
+        className="mt-3"
+        onClick={() => window.open("/lista-clientes", "_blank")}
+      >
+        Ver Lista de Clientes
+      </Button>
     </Layout>
   );
 };

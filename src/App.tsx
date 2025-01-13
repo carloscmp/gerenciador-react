@@ -6,6 +6,7 @@ import './App.css';
 import Servico from './pages/Servico';
 import Cliente from './pages/Cliente';
 import Agendamento from './pages/Agendamento';
+import ListaClientes from './pages/ListaClientes';
 
 
 const App: React.FC = () => {
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         <Route path="/servico" element={<Servico />} />
         <Route path="/cliente" element={<Cliente />} />
         <Route path="/agendamento" element={<Agendamento />} />
+        <Route path="/lista-clientes" element={<ListaClientes />} />
       </Routes>
     </div>
   );
