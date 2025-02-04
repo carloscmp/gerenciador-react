@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Layout from "../components/Layout";
-import api from "../services/api";
-import { Table, Button, Modal, Form } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Form, Modal, Table } from "react-bootstrap";
+import Layout from "../../../components/layout/Layout";
+import api from "../../../services/api";
 
 const ListaClientes: React.FC = () => {
   interface Cliente {
@@ -56,7 +56,9 @@ const ListaClientes: React.FC = () => {
         alert("Cliente atualizado com sucesso!");
         setClientes(
           clientes.map((cliente) =>
-            cliente.id === (response.data as Cliente).id ? (response.data as Cliente) : cliente
+            cliente.id === (response.data as Cliente).id
+              ? (response.data as Cliente)
+              : cliente
           )
         );
         setShowModal(false);

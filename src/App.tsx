@@ -1,13 +1,13 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Home from './pages/Home';
-import './App.css';
-import Servico from './pages/Servico';
-import Cliente from './pages/Cliente';
-import Agendamento from './pages/Agendamento';
-import ListaClientes from './pages/ListaClientes';
-import AtualizarCliente from './pages/AtualizarCliente';
+import Header from './components/layout/Header';
+import './index.css';
+import Servico from './features/servicos/pages/Servico';
+import Cliente from './features/clientes/pages/Cliente';
+import Agendamento from './features/agendamentos/pages/Agendamento';
+import ListaClientes from './features/clientes/pages/ListaClientes';
+import AtualizarCliente from './features/clientes/pages/AtualizarCliente';
+import Home from './features/home/pages/Home';
 
 
 const App: React.FC = () => {

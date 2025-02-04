@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Layout from "../components/Layout";
+import Layout from "../../../components/layout/Layout";
 
 const Agendamento: React.FC = () => {
   const [clienteSelecionado, setClienteSelecionado] = useState("");

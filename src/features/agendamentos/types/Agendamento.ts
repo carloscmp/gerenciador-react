@@ -1,5 +1,5 @@
-import { Cliente } from './Cliente';
-import { Servico } from './Servico';
+import { Cliente } from '../../clientes/types/Cliente';
+import { Servico } from '../../servicos/types/Servico';
 
 export interface Agendamento {
   id: number;          // ID do agendamento

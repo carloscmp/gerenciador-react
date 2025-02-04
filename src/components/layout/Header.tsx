@@ -1,7 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap/lib/Tab";
 import { Link } from "react-router-dom";
-import Layout from "./Layout";
 
 const Header: React.FC = () => {
   return (

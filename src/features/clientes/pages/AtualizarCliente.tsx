@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useParams, useNavigate } from "react-router-dom";
-import api from "../services/api";
+import { useNavigate, useParams } from "react-router-dom";
+import api from "../../../services/api";
 
 const AtualizarCliente: React.FC = () => {
   const { id } = useParams<{ id: string }>();
