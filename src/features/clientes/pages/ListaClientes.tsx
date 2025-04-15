@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Modal, Table } from "react-bootstrap";
+import { PencilSquare, Trash } from "react-bootstrap-icons";
 import Layout from "../../../components/layout/Layout";
 import api from "../../../services/api";
 
@@ -15,7 +16,6 @@ const ListaClientes: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedCliente, setSelectedCliente] = useState<Cliente | null>(null);
 
-  // Fetch inicial para carregar a lista de clientes
   useEffect(() => {
     const fetchClientes = async () => {
       try {
@@ -26,11 +26,9 @@ const ListaClientes: React.FC = () => {
         alert("Erro ao carregar a lista de clientes.");
       }
     };
-
     fetchClientes();
   }, []);
 
-  // Função para deletar um cliente
   const handleDelete = async (id: number) => {
     try {
       await api.delete(`/cliente/${id}`);
@@ -42,13 +40,11 @@ const ListaClientes: React.FC = () => {
     }
   };
 
-  // Função para abrir o modal de edição
   const handleEdit = (cliente: Cliente) => {
     setSelectedCliente(cliente);
     setShowModal(true);
   };
 
-  // Função para salvar as alterações
   const handleSave = async () => {
     if (selectedCliente) {
       try {
@@ -74,47 +70,106 @@ const ListaClientes: React.FC = () => {
     <Layout>
       <h1>Lista de Clientes</h1>
       {clientes.length > 0 ? (
-        <Table striped bordered hover className="mt-4">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Endereço</th>
-              <th>Telefone</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody>
+        <>
+          {/* Tabela para telas grandes */}
+          <div>
+            <Table
+              striped
+              bordered
+              hover
+              className="table-dark"
+              style={{ tableLayout: "fixed" }}
+            >
+              <thead>
+                <tr className="">
+                  <th className="text-center p-3" style={{ width: "5%" }}>
+                    ID
+                  </th>
+                  <th className="text-center p-3">Nome</th>
+                  <th className="text-center p-3">Endereço</th>
+                  <th className="text-center p-3" style={{ width: "15%" }}>
+                    Telefone
+                  </th>
+                  <th className="text-center p-3" style={{ width: "14%" }}>
+                    Ações
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {clientes.map((cliente) => (
+                  <tr key={cliente.id}>
+                    <td className="text-center p-3">{cliente.id}</td>
+                    <td className="text-center p-3">{cliente.nome}</td>
+                    <td className="text-center p-3">{cliente.endereco}</td>
+                    <td className="text-center p-3">{cliente.telefone}</td>
+                    <td>
+                      <div className="d-flex justify-content-start gap-1">
+                        <Button
+                          variant="warning"
+                          className="d-flex align-items-center"
+                          onClick={() => handleEdit(cliente)}
+                        >
+                          <PencilSquare className="me-1" /> Editar
+                        </Button>
+                        <Button
+                          variant="danger"
+                          className="d-flex align-items-center"
+                          onClick={() => handleDelete(cliente.id)}
+                        >
+                          <Trash className="me-1" /> Deletar
+                        </Button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+          </div>
+
+          {/* Cards para telas menores */}
+          <div className="d-md-none mt-4">
             {clientes.map((cliente) => (
-              <tr key={cliente.id}>
-                <td>{cliente.id}</td>
-                <td>{cliente.nome}</td>
-                <td>{cliente.endereco}</td>
-                <td>{cliente.telefone}</td>
-                <td>
+              <div
+                key={cliente.id}
+                className="card mb-3 p-3 shadow-sm"
+                style={{ backgroundColor: "#f9f9f9" }}
+              >
+                <p>
+                  <strong>ID:</strong> {cliente.id}
+                </p>
+                <p>
+                  <strong>Nome:</strong> {cliente.nome}
+                </p>
+                <p>
+                  <strong>Endereço:</strong> {cliente.endereco}
+                </p>
+                <p>
+                  <strong>Telefone:</strong> {cliente.telefone}
+                </p>
+                <div className="d-flex justify-content-start">
                   <Button
                     variant="warning"
                     className="me-2"
                     onClick={() => handleEdit(cliente)}
                   >
-                    ✏️ Atualizar
+                    <PencilSquare />
                   </Button>
                   <Button
                     variant="danger"
                     onClick={() => handleDelete(cliente.id)}
                   >
-                    🗑️ Deletar
+                    <Trash />
                   </Button>
-                </td>
-              </tr>
+                </div>
+              </div>
             ))}
-          </tbody>
-        </Table>
+          </div>
+        </>
       ) : (
         <p>Nenhum cliente encontrado.</p>
       )}
 
-      {/* Modal para editar cliente */}
+      {/* Modal para edição */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Editar Cliente</Modal.Title>

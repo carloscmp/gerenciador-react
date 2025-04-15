@@ -1,8 +1,13 @@
 import React from "react";
+import { InputText } from "primereact/inputtext";
 import { useNavigate } from "react-router-dom";
 import Layout from "../../../components/layout/Layout";
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-..." crossOrigin="anonymous" />
-
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-..."
+  crossOrigin="anonymous"
+/>;
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -16,7 +21,7 @@ const Home: React.FC = () => {
           className="btn btn-primary"
           onClick={() => navigate("/cliente")}
         >
-          Cadastrar Cliente
+          Clientes
         </button>
         <button
           className="btn btn-success"
@@ -24,10 +29,14 @@ const Home: React.FC = () => {
         >
           Cadastrar Serviço
         </button>
-        <button className="btn btn-success" onClick={() => navigate('/agendamento')}>
-            Agendar Serviço
-          </button>
+        <button
+          className="btn btn-success"
+          onClick={() => navigate("/agendamento")}
+        >
+          Agendar Serviço
+        </button>
       </div>
+      
     </Layout>
   );
 };

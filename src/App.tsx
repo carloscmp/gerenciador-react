@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import './index.css';
 import Servico from './features/servicos/pages/Servico';
-import Cliente from './features/clientes/pages/Cliente';
+import Cliente from './features/clientes/pages/Cliente_';
 import Agendamento from './features/agendamentos/pages/Agendamento';
 import ListaClientes from './features/clientes/pages/ListaClientes';
 import AtualizarCliente from './features/clientes/pages/AtualizarCliente';

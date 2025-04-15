@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Button, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import Layout from "../../../components/layout/Layout";
 import api from "../../../services/api";
+import { Button } from "primereact/button";
+import { InputText } from "primereact/inputtext";
 
 const Cliente: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -85,13 +87,10 @@ const Cliente: React.FC = () => {
               placeholder="(00) 0 0000-0000)"
             />
           </div>
-          <Button variant="info" type="submit">
-            Cadastrar
-          </Button>
+          <Button type="submit">Cadastrar</Button>
         </form>
       </Row>
       <Button
-        variant="primary"
         className="mt-3"
         onClick={() => window.open("/lista-clientes", "_blank")}
       >
